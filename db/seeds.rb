@@ -23,12 +23,14 @@ end
               :cafe_about    => Faker::Lorem.sentence
 end
 
+10.times do
+  Review.create :user_review => Faker::Lorem.sentence,
+                :cafe_review => nil
+end
 
-#   Reviews.create :name => skill, :context => 'technical'
-# end
+10.times do
+  Review.create :user_review => Faker::Lorem.sentence,
+                :cafe_review => Faker::Lorem.sentence
+end
 
-# # create a few creative skills
-# design_skills = %w(Photoshop Illustrator Responsive-Design)
-# design_skills.each do |skill|
-#   Skill.create :name => skill, :context => 'creative'
-# end
+
