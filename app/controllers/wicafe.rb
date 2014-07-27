@@ -15,6 +15,8 @@ get '/cafes' do
 	erb :cafes
 end
 
+# USER CONTROLER
+
 post '/users/create' do
   @user = User.create(name: params[:name], email: params[:email])
   @user.password_hash = params[:password_hash]
@@ -39,4 +41,9 @@ get '/profile' do
   @user = User.find(session[:id])
   #@gravatar = "#{@user.email}".gravatar.to_s
   erb:'/profile'
+end
+
+get '/logout' do
+  session.clear
+  redirect( "/")
 end

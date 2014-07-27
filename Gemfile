@@ -19,7 +19,7 @@ gem 'rake'
 gem 'shotgun'
 gem 'gr_avatar'
 
-gem "bcrypt-ruby", "3.1.1.rc1"
+gem 'bcrypt-ruby', '~>3.1.2', platforms: :ruby
 
 group :test do
   gem 'shoulda-matchers'
