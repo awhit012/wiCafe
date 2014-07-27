@@ -3,17 +3,17 @@ enable :sessions
 helpers do
 
 	def start_session user
-		session[:user_id] = user.id
+		session[:id] = user.id
 		current_user
 	end
 
 	def current_user
-			@current_user ||= User.find_by_id(session[:user_id])
+			@current_user ||= User.find_by_id(session[:id])
 	end
 
 	def logged_in?
 		begin
-			return current_user if current_user.id == session[:user_id]
+			return current_user if current_user.id == session[:id]
 		rescue
 			false
 		end
@@ -25,7 +25,7 @@ helpers do
 
 	def authenticate? username, password
 		user = User.find_by_username(username)
-		# TODO: If user exists, check for password. 
+		# TODO: If user exists, check for password.
 
 		# TODO: If not, give warning that combination was invalid.
 

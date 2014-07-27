@@ -12,3 +12,7 @@ th {
 .browse {
 	text-align: center;
 }
+
+#logout {
+  text-align: right;
+}

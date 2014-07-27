@@ -1,9 +1,10 @@
 enable :sessions
+#require 'gr_avatar'
 
 get '/' do
   # p "GET: / - Root Homepage"
   if logged_in?
-  	redirect( "/#{current_user.username}/profile" )
+  	redirect( "/profile" )
   else
  		erb :index
   end
@@ -19,14 +20,23 @@ post '/users/create' do
   @user.password_hash = params[:password_hash]
   @user.save!
 
-  redirect '/'
+  session[:id] = @user.id
+
+  redirect '/profile'
 end
 
 post '/users/login' do
   #sign-in, create session
   @user = User.where(email: params[:email]).first
-  if @user.password == params[:password_hash]
-    session[:user_id] = @user.user_id
+  if @user.password_hash == params[:password_hash]
+    session[:id] = @user.id
   end
-  redirect( "/#{current_user.username}/profile" )
+  #redirect( "/#{current_user.email}/profile" )
+  redirect( "/profile" )
+end
+
+get '/profile' do
+  @user = User.find(session[:id])
+  #@gravatar = "#{@user.email}".gravatar.to_s
+  erb:'/profile'
 end

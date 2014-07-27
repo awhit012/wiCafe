@@ -17,6 +17,9 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
+gem 'gr_avatar'
+
+gem "bcrypt-ruby", "3.1.1.rc1"
 
 group :test do
   gem 'shoulda-matchers'
