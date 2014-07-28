@@ -4,7 +4,7 @@ require 'faker'
 25.times do
   User.create :name          => Faker::Name.name,
               :email         => Faker::Internet.email,
-              :password_hash => Faker::Lorem.word,
+              :password_hash => Faker::Lorem.characters(10),
               :patron_rating => (1..5).to_a.sample,
               :about_me      => Faker::Lorem.sentence,
               :cafe_location => nil,
@@ -15,7 +15,7 @@ end
 5.times do
   User.create :name          => Faker::Name.name,
               :email         => Faker::Internet.email,
-              :password_hash => Faker::Lorem.word,
+              :password_hash => Faker::Lorem.characters(10),
               :patron_rating => (1..5).to_a.sample,
               :about_me      => Faker::Lorem.sentence,
               :cafe_location => Faker::Address.street_address,

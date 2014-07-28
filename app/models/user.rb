@@ -1,7 +1,7 @@
 # require 'bcrypt'
 
 class User < ActiveRecord::Base
-  validates :name, presence:     true
+  validates :name,          presence: true
   validates :password_hash, presence: true,
                     length: {minimum: 6, maximum: 30}
   validates :email, presence:    true,

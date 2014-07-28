@@ -1,5 +1,5 @@
 class CreateUsers < ActiveRecord::Migration
-  has_many :reviews
+  # has_many :reviews
 
   def change
     create_table(:users) do |t|

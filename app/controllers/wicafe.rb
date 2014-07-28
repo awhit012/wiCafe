@@ -40,10 +40,26 @@ end
 get '/profile' do
   @user = User.find(session[:id])
   #@gravatar = "#{@user.email}".gravatar.to_s
-  erb:'/profile'
+  erb :profile
 end
 
 get '/logout' do
   session.clear
   redirect( "/")
+end
+
+get '/newhost' do
+  erb :hostform
+end
+
+post '/newhost/update' do
+  @user = User.find(session[:id])
+  #params = (cafe_location: params[:cafe_location], cafe_about: params[:cafe_about])
+  #@user.update_attributes(:cafe_location => params[:cafe_location])
+  #@user.update_attributes(:cafe_about => params[:cafe_about])
+  # puts session[:id]
+  p params
+  p @user.update_attributes!(params)
+  #@user.save
+  redirect("/profile")
 end
