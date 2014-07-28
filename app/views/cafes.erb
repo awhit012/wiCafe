@@ -1,1 +1,15 @@
-<h1>Check out a cafe near you!<h1>
+<div class="container">
+  <h1>Check out a cafe near you!<h1>
+
+  <ul>
+    <% @hosts.each do |host| %>
+      <li>Host name: <%= host.name %> </li>
+      <br>
+      <ul>
+        <li>Cafe location: <%= host.cafe_location %> </li>
+        <li>About this cafe: <%= host.cafe_about %> </li>
+        <br>
+      </ul>
+    <% end %>
+  </ul>
+</div>

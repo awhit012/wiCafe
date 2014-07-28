@@ -1,6 +1,8 @@
 # require 'bcrypt'
 
 class User < ActiveRecord::Base
+  scope :hosts, -> { where("cafe_location is not null") }
+
   validates :name,          presence: true
   validates :password_hash, presence: true,
                     length: {minimum: 6, maximum: 30}
@@ -17,4 +19,5 @@ class User < ActiveRecord::Base
   #   @password = Password.create(new_password)
   #   self.password_hash = @password
   # end
+
 end

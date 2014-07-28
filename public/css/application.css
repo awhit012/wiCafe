@@ -14,6 +14,8 @@ th {
 }
 
 #profile_button {
-  text-align: right;
-  padding: 10%;
+  position: inline;
+  text-align: center;
+  padding: 1%;
 }
+

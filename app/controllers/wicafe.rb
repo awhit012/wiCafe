@@ -12,6 +12,7 @@ end
 
 
 get '/cafes' do
+  @hosts = User.hosts
 	erb :cafes
 end
 
