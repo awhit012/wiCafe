@@ -1,0 +1,36 @@
+as a user I want to:
+	-sign up
+	-log in with google
+	-be a patron
+	-become a host
+
+as a patron I want to:
+	-make a profile
+		*about me
+		*pic
+		*references for unrated patrons
+	-browse host spots by location
+	-rate host spots
+
+as a host I want to:
+	-make a profile
+		*location
+		*connected to google maps
+		*upload photos
+		*write description
+		*immenities offered
+		*house rules
+	-rate patrons
+	-adjust who can see my profile
+	-be insured
+	-set price for the service
+	-decide on how to charge
+		*by the hour
+		*by the coffee
+		*flat rate for the day
+
+OTHER: 
+	-verify identity, email, phone, etc.
+
+
+APIS: google maps, gmail/google+
