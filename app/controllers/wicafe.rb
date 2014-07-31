@@ -59,12 +59,7 @@ end
 
 post '/newhost/update' do
   @user = User.find(session[:id])
-  #params = (cafe_location: params[:cafe_location], cafe_about: params[:cafe_about])
-  #@user.update_attributes(:cafe_location => params[:cafe_location])
-  #@user.update_attributes(:cafe_about => params[:cafe_about])
-  # puts session[:id]
-  p params
-  p @user.update_attributes!(params)
-  #@user.save
+  @user.update_attributes!(params)
+  @user.save
   redirect("/profile")
 end

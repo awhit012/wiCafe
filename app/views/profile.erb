@@ -1,12 +1,20 @@
 <div class="container">
 <!--<img src="<%#= @gravatar %>">-->
   <h1> Welcome <%= @user.name %>! </h1>
-  <h2> User rating: <%= @user.patron_rating %> </h2>
-  <h2> About: <%= @user.about_me %> </h2>
-  <% if @user.cafe_location != nil %>
-    <h2> Cafe rating: <%= @user.cafe_rating %> </h2>
-    <h2> Cafe About: <%= @user.cafe_about %> </h2>
-    <h2> Cafe Location: <%= @user.cafe_location %> </h2>
+  <h3> User rating: <%= @user.patron_rating %> </h3>
+  <h3> About Me: <%= @user.about_me %> </h3>
+  <% if @user.cafe_location != "" %>
+    <h3> Cafe rating: <%= @user.cafe_rating %> </h3>
+    <h3> Cafe About: <%= @user.cafe_about %> </h3>
+    <h3> Cafe Location: <%= @user.cafe_location %> </h3>
+    <ul>
+      <% if @user[:outdoor_area] == true %>
+        <li> Outdoor area available </li>
+      <% end %>
+      <% if @user[:smoking_ok] == true %>
+        <li> Smoking OK </li>
+      <% end %>
+    </ul>
   <% end %>
 
 </div>
@@ -14,6 +22,11 @@
   <div id="profile_button">
     <a href="/cafes">
       <button type="submit" class="btn btn-success">Find a cafe near you</button>
+    </a>
+  </div>
+  <div id="profile_button">
+    <a href="/profile/edit">
+      <button type="submit" class="btn btn-info">Edit About Me</button>
     </a>
   </div>
   <div id="profile_button">

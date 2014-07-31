@@ -1,6 +1,9 @@
 # require 'bcrypt'
 
 class User < ActiveRecord::Base
+  # attr_accessor :outdoor_area
+  # attr_accessor :smoking_ok
+
   scope :hosts, -> { where("cafe_location is not null") }
 
   validates :name,          presence: true

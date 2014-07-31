@@ -11,10 +11,11 @@ class CreateUsers < ActiveRecord::Migration
       t.text     :about_me
 
       # hosts only
-      t.text :cafe_location
-      t.text :cafe_rating
-      t.text :cafe_about
-      t.text :ca
+      t.text    :cafe_location
+      t.text    :cafe_rating
+      t.text    :cafe_about
+      t.boolean :outdoor_area, default: false
+      t.boolean :smoking_ok,   default: false
 
       t.timestamps
     end

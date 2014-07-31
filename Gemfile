@@ -20,6 +20,7 @@ gem 'shotgun'
 gem 'gr_avatar'
 
 gem 'bcrypt', '~>3.1.2', platforms: :ruby
+gem 'faker'
 
 group :test do
   gem 'shoulda-matchers'
@@ -29,5 +30,4 @@ end
 group :test, :development do
   gem 'rspec'
   gem 'factory_girl'
-  gem 'faker'
 end
