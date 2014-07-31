@@ -18,6 +18,12 @@ background-attachment: fixed;
   border-radius: 4px;
 }
 
+.header-button {
+  position: fixed;
+  right: 20px;
+  top: 10px;
+}
+
 .navbar-inner {
     color: #FFFFCC;
     background-color: #2B2219;
