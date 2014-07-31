@@ -22,25 +22,24 @@ end
 
 get '/auth' do
   # the `request_token` method is defined in `app/helpers/oauth.rb`
-
+  p "ITS HITTING AUTH"
   @access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
   # our request token is only valid until we use it to get an access token, so let's delete it from our session
   session.delete(:request_token)
 
   # at this point in the code is where you'll need to create your user account and store the access token
-  user = User.find_or_create_by(username: @access_token.params[:screen_name])
-  user.oauth_token = @access_token.token
-  user.oauth_secret = @access_token.secret
-  user.save
+  @user = User.find_or_create_by(username: @access_token.params[:screen_name])
+  @user.oauth_token = @access_token.token
+  @user.oauth_secret = @access_token.secret
+  @user.save
 
-  session[:user_id]=user.id
+  session[:user_id]=@user.id
 
-  redirect '/signed_in'
-end
-
-get '/signed_in' do
   erb :profile
 end
+
+# get '/signed_in' do
+# end
 
 
 
