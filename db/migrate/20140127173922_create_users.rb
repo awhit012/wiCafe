@@ -14,6 +14,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :cafe_location
       t.text :cafe_rating
       t.text :cafe_about
+      t.text :ca
 
       t.timestamps
     end
