@@ -1,7 +1,13 @@
+body
+{
+background-image:url('paper.gif');
+background-color:#cccccc;
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   border: 1px dotted black;
 }
 
@@ -18,4 +24,6 @@ th {
   text-align: center;
   padding: 1%;
 }
+
+
 

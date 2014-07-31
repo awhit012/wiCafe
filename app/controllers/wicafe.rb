@@ -44,6 +44,10 @@ get '/profile' do
   erb :profile
 end
 
+get '/profile/edit' do
+  erb :edit_profile
+end
+
 get '/logout' do
   session.clear
   redirect( "/")
