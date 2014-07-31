@@ -19,6 +19,11 @@ gem 'rake'
 gem 'shotgun'
 gem 'gr_avatar'
 
+gem 'oauth'
+gem 'twitter'
+gem 'slim'
+gem 'dotenv'
+
 gem 'bcrypt', '~>3.1.2', platforms: :ruby
 gem 'faker'
 
