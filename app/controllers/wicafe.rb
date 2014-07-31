@@ -2,7 +2,7 @@ enable :sessions
 #require 'gr_avatar'
 
 get '/' do
-  # p "GET: / - Root Homepage"
+  @users = User.all
   if logged_in?
   	redirect( "/profile" )
   else
@@ -22,7 +22,6 @@ end
 
 get '/auth' do
   # the `request_token` method is defined in `app/helpers/oauth.rb`
-  p "ITS HITTING AUTH"
   @access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
   # our request token is only valid until we use it to get an access token, so let's delete it from our session
   session.delete(:request_token)
@@ -31,40 +30,44 @@ get '/auth' do
   @user = User.find_or_create_by(username: @access_token.params[:screen_name])
   @user.oauth_token = @access_token.token
   @user.oauth_secret = @access_token.secret
+  if @user.name == nil
+    @user["name"] = @user["user_name"]
+  end
+
   @user.save
 
-  session[:user_id]=@user.id
+  session[:id]=@user.id
 
-  erb :profile
+  redirect '/profile'
 end
 
 # get '/signed_in' do
 # end
 
 
-
-get '/cafes' do
-  @hosts = User.hosts
-	erb :cafes
-end
+#youcandeletethis
+# get '/cafes' do
+#   @hosts = User.hosts
+# 	erb :cafes
+# end
 
 # USER CONTROLER
 
-post '/users/create' do
-  @user = User.create(name: params[:name], email: params[:email])
-  @user.password_hash = params[:password_hash]
-  @user.save!
+# post '/users/create' do
+#   @user = User.create(username: params[:username]) #, email: params[:email])
+#   # @user.password_hash = params[:password_hash]
+#   @user.save!
 
-  session[:id] = @user.id
+#   session[:id] = @user.id
 
-  redirect '/profile'
-end
+#   redirect '/profile'
+# end
 
 post '/users/login' do
   #sign-in, create session
   @user = User.where(email: params[:email]).first
   if @user.password_hash == params[:password_hash]
-    session[:id] = @user.id
+    session[:id] = params[:request_token]
   end
   #redirect( "/#{current_user.email}/profile" )
   redirect( "/profile" )

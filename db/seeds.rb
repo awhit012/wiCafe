@@ -9,7 +9,8 @@ require 'faker'
               :about_me      => Faker::Lorem.sentence,
               :cafe_location => nil,
               :cafe_rating   => nil,
-              :cafe_about    => nil
+              :cafe_about    => nil,
+              :username      => Faker::Internet.user_name
 end
 
 5.times do
@@ -20,7 +21,8 @@ end
               :about_me      => Faker::Lorem.sentence,
               :cafe_location => Faker::Address.street_address,
               :cafe_rating   => (1..5).to_a.sample,
-              :cafe_about    => Faker::Lorem.sentence
+              :cafe_about    => Faker::Lorem.sentence,
+              :username      => Faker::Internet.user_name
 end
 
 10.times do

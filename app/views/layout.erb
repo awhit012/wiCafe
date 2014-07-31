@@ -16,7 +16,17 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand navbar-center" href="/">Welcome to WiCafe</a>
-      </div>
+          <% if @current_user == nil %>
+            <a href='/sign_in'>
+              <button class="btn btn-primary">Signup or Log In with Twitter</button>
+            </a>
+          <% else %>
+            <a href="/logout">
+                <button type="submit" class="btn btn-warning">Logout</button>
+            </a>
+          <% end %>
+  </div>
+        </div>
       <% if @user %>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">

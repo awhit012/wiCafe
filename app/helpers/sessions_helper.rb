@@ -13,7 +13,7 @@ helpers do
 
 	def logged_in?
 		begin
-			return current_user if current_user.id == session[:id]
+			return current_user if current_user.oauth_secret == session[:oauth_secret]
 		rescue
 			false
 		end
@@ -25,11 +25,6 @@ helpers do
 
 	def authenticate? username, password
 		user = User.find_by_username(username)
-		# TODO: If user exists, check for password.
-
-		# TODO: If not, give warning that combination was invalid.
-
-		# TODO: http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html
 		user.password == password ? user : false
 	end
 end
