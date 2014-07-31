@@ -1,22 +1,25 @@
-body
-{
-background-image:url('paper.gif');
+body {
+background-image:url('/images/coffee-background.jpg');
 background-color:#cccccc;
-}
-
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 20px 20px 20px 20px;
-  border: 1px dotted black;
-}
-
-th {
-  text-align: left;
+background-attachment: fixed;
 }
 
 .browse {
 	text-align: center;
+}
+
+.container {
+  background-color: white;
+  color: #140A00;
+  opacity: 0.7;
+  width:   600px;
+  padding: 20px 20px 20px 20px;
+  border:  1px black;
+}
+
+.navbar-inner {
+    color: #FFFFCC;
+    background-color: #2B2219;
 }
 
 #profile_button {
@@ -24,6 +27,12 @@ th {
   text-align: center;
   padding: 1%;
 }
+
+th {
+  text-align: left;
+}
+
+
 
 
 
