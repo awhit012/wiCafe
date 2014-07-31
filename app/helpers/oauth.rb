@@ -9,16 +9,17 @@ def oauth_consumer
 end
 
 def request_token
+  p ENV['TWITTER_KEY']
+  p ENV['TWITTER_SECRET']
   if not session[:request_token]
     # this 'host_and_port' logic allows our app to work both locally and on Heroku
     host_and_port = request.host
-    host_and_port << ":9393" if request.host == "127.0.0.1"
+    host_and_port << ":9393" if request.host == "localhost"
+    # request.host << ":9393"
     # the `oauth_consumer` method is defined above
     session[:request_token] = oauth_consumer.get_request_token(
       :oauth_callback => "http://#{host_and_port}/auth"
     )
-    p ENV['TWITTER_KEY']
-    p ENV['TWITTER_SECRET']
   end
   session[:request_token]
 end
