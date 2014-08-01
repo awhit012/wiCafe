@@ -4,7 +4,7 @@ enable :sessions
 get '/' do
   @users = User.all
   if logged_in?
-  	redirect( "/profile" )
+  	@logged_in = true
   else
  		erb :index
   end
@@ -38,40 +38,10 @@ get '/auth' do
 
   session[:id]=@user.id
 
-  redirect '/profile'
+  redirect '/'
 end
-
-# get '/signed_in' do
-# end
-
-
-#youcandeletethis
-# get '/cafes' do
-#   @hosts = User.hosts
-# 	erb :cafes
-# end
 
 # USER CONTROLER
-
-# post '/users/create' do
-#   @user = User.create(username: params[:username]) #, email: params[:email])
-#   # @user.password_hash = params[:password_hash]
-#   @user.save!
-
-#   session[:id] = @user.id
-
-#   redirect '/profile'
-# end
-
-post '/users/login' do
-  #sign-in, create session
-  @user = User.where(email: params[:email]).first
-  if @user.password_hash == params[:password_hash]
-    session[:id] = params[:request_token]
-  end
-  #redirect( "/#{current_user.email}/profile" )
-  redirect( "/profile" )
-end
 
 get '/profile' do
   @user = User.find(session[:id])
