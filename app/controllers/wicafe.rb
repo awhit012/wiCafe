@@ -4,8 +4,6 @@ enable do
   ActiveRecord::Base.connection.close
 end
 
-#require 'gr_avatar'
-
 get '/' do
   @users = User.all
   if logged_in?
