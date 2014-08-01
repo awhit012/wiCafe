@@ -1,12 +1,17 @@
 <div class="container">
-  <h1>Check out a cafe near you!<h1>
-
+  <h1>Find a great space to work, play, and find community.<h1>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
   <ul>
     <% @users.each do |user| %>
       <% if user.cafe_location != nil %>
-        <h1> Cafe <%=  user.name || user.username %>! </h1>
+        <h1> Cafe <%=  user.name || user.username %> </h1>
         <br>
           <ul>
+            <li>Rating: <%= user.cafe_rating %>/5 </li>
             <li>About this cafe: <%= user.cafe_about %> </li>
             <% if @current_user != nil %>
               <li>Cafe location: <%= user.cafe_location %> </li>

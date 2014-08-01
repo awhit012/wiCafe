@@ -4,7 +4,6 @@ enable :sessions
 get '/' do
   @users = User.all
   if logged_in?
-  	@logged_in = true
   else
  		erb :index
   end
@@ -63,6 +62,7 @@ get '/newhost' do
 end
 
 post '/newhost/update' do
+
   @user = User.find(session[:id])
   @user.update_attributes!(params)
   @user.save

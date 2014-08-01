@@ -8,6 +8,8 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+
 
   <title>WiCafe</title>
 </head>
@@ -17,7 +19,7 @@
       <div class="navbar-header">
         <a class="navbar-brand navbar-center" href="/">Welcome to WiCafe</a>
           <div class="header-button">
-            <% if @logged_in != true %>
+            <% if logged_in? != false %>
               <a href='/profile'>
                 <button class="btn btn-primary">My Profile</button>
               </a>
@@ -32,7 +34,7 @@
           </div>
         </div>
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </nav>
   <%= yield %>
 </body>

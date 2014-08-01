@@ -15,6 +15,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text     :about_me
 
       # hosts only
+      t.text    :cafe_name
       t.text    :cafe_location
       t.text    :cafe_rating
       t.text    :cafe_about

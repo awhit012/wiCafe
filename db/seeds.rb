@@ -22,6 +22,7 @@ end
               :cafe_location => Faker::Address.street_address,
               :cafe_rating   => (1..5).to_a.sample,
               :cafe_about    => Faker::Lorem.sentence,
+              :cafe_name     => "Cafe " + Faker::Company.name,
               :username      => Faker::Internet.user_name
 end
 
